@@ -1,5 +1,6 @@
 
 import sqlite3
+from os import chdir
 from pathlib import Path
 
 import httpx
@@ -7,7 +8,12 @@ import pytest
 
 
 DB_URL = "https://raw.githubusercontent.com/lerocha/chinook-database/master/ChinookDatabase/DataSources/Chinook_Sqlite.sqlite"
-DB_PATH = "tests/files/database.sqlite"
+DB_PATH = "files/database.sqlite"
+
+
+# when running tests, moves to 
+if Path("./tests/").exists():
+    chdir("./tests/")
 
 
 def download_database(url: str, output_path: str) -> None:
