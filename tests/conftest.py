@@ -1,6 +1,6 @@
 
 import sqlite3
-from os import chdir
+from os import chdir, remove
 from pathlib import Path
 
 import httpx
@@ -9,6 +9,7 @@ import pytest
 
 DB_URL = "https://raw.githubusercontent.com/lerocha/chinook-database/master/ChinookDatabase/DataSources/Chinook_Sqlite.sqlite"
 DB_PATH = "files/database.sqlite"
+RES_PATH = "files/res.sqlite"
 
 
 # when running tests, moves to 
@@ -34,6 +35,16 @@ def download_database(url: str, output_path: str) -> None:
                 file.write(chunk)
 
 
+def clean():
+    """
+    Cleans result from previous tests.
+    """
+    path = Path(RES_PATH)
+
+    if path.exists():
+        remove(RES_PATH)
+
+
 @pytest.fixture()
 def setup_database():
     """
@@ -43,6 +54,8 @@ def setup_database():
 
     if not path.exists():
         download_database(DB_URL, DB_PATH)
+    
+    clean()
     
     # Checks file
     connection = sqlite3.connect(DB_PATH)
