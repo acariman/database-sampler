@@ -1,6 +1,6 @@
 
 sources:
-  source-1:
+  source-test:
     connection:
       host: "127.0.0.1"
       username: "CHANGEME!"
