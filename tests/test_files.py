@@ -8,5 +8,5 @@ def test_get_settings():
     print(res)
 
     assert "connection" in res["sources"]["test"]
-    assert "tables" in res["sources"]["test"]
+    assert "entities" in res["sources"]["test"]
     assert "sqlite" in res["sources"]["test"]["connection"]["driver"]

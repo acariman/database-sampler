@@ -2,15 +2,30 @@
 sources:
   source-1:
     connection:
+      driver: "sqlite"
+      file: "database.sqlite"
+
+    entities:
+      - {name: table_a, schema: dbo, column: datetime_column}
+      - {name: table_b, schema: dbo, column: timestamp_column}
+
+      # if column is None or undefined, it will download all data from entity
+      - {name: view_a, schema: dbo, column: }
+
+  source-1:
+    connection:
+      driver: "postgres"
       host: "127.0.0.1"
+      database: "CHANGEME!"
       username: "CHANGEME!"
       password: "CHANGEME!"
-      driver: "sqlite"
 
-    tables:
-      schema.table_a: datetime_column
-      schema.table_b: timestamp_column
-      schema.table_a:  # if None, it will download all data
-  
+    entities:
+      - {name: table_a, schema: dbo, column: datetime_column}
+      - {name: table_b, schema: dbo, column: timestamp_column}
+
+      # if column is None or undefined, it will download all data from entity
+      - {name: view_a, schema: dbo, column: }
+
   # adds as many sources as you would like
   # ...
