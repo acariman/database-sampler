@@ -1,10 +1,27 @@
 
-sources:
-  source-1:
-    connection:
-      driver: "sqlite"
-      file: "database.sqlite"
+# list all connections that you would like to use
+connections:
+  sample-sqlite:  # conn name, will be used for origin/destinations in operations section
+    driver: "sqlite"
+    file: "database.sqlite"
 
+  sample-postgres:  # conn name
+      driver: "postgres"
+      host: "127.0.0.1"
+      database: "CHANGEME!"
+      username: "CHANGEME!"
+      password: "CHANGEME!"
+
+  result:  # conn name
+    driver: "sqlite"
+    file: "res.sqlite"
+
+
+# list all the sample operations that you would like to execute
+operations:
+  download-from-sqlite:
+    origin: sample-sqlite  # connection name for origin
+    destination: result  # connection name for destination
     entities:
       - {name: table_a, schema: dbo, column: datetime_column}
       - {name: table_b, schema: dbo, column: timestamp_column}
@@ -12,19 +29,12 @@ sources:
       # if column is None or undefined, it will download all data from entity
       - {name: view_a, schema: dbo, column: }
 
-  source-1:
-    connection:
-      driver: "postgres"
-      host: "127.0.0.1"
-      database: "CHANGEME!"
-      username: "CHANGEME!"
-      password: "CHANGEME!"
-
+  download-from-postgres:
+    origin: sample-postgres  # connection name for origin
+    destination: result  # connection name for destination
     entities:
       - {name: table_a, schema: dbo, column: datetime_column}
       - {name: table_b, schema: dbo, column: timestamp_column}
-
-      # if column is None or undefined, it will download all data from entity
       - {name: view_a, schema: dbo, column: }
 
   # adds as many sources as you would like

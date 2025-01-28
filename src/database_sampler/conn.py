@@ -1,13 +1,11 @@
 
 
 def create_uri(settings):
-    conn_settings = settings["connection"]
-
-    if conn_settings["driver"].strip().lower() == "sqlite":    
-        uri = f"sqlite://{conn_settings['file']}"
+    if settings["driver"].strip().lower() == "sqlite":    
+        uri = f"sqlite://{settings['file']}"
     else:
-        uri = f"{conn_settings['driver']}://" \
-            f"{conn_settings['username']}:{conn_settings['password']}" \
-            f"@{conn_settings['host']}/{conn_settings['database']}"
+        uri = f"{settings['driver']}://" \
+            f"{settings['username']}:{settings['password']}" \
+            f"@{settings['host']}/{settings['database']}"
 
     return uri

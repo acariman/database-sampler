@@ -7,6 +7,12 @@ def test_get_settings():
     res = get_settings()
     print(res)
 
-    assert "connection" in res["sources"]["test"]
-    assert "entities" in res["sources"]["test"]
-    assert "sqlite" in res["sources"]["test"]["connection"]["driver"]
+    assert "connections" in res
+    assert "sqlite" in res["connections"]["sample"]["driver"]
+    assert "files/res.sqlite" in res["connections"]["result"]["file"]
+
+    assert "operations" in res
+    assert "entities" in res["operations"]["sqlite2sqlite"]
+    assert "sample" in res["operations"]["sqlite2sqlite"]["origin"]
+    assert "Album" in res["operations"]["sqlite2sqlite"]["entities"][0]["name"]
+    

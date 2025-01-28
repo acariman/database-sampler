@@ -10,18 +10,25 @@ from database_sampler.conn import create_uri
 # TODO: enable filtering
 QUERY = Template("SELECT * FROM $entity_name")
 
-def download(settings: str = "etc/settings.yml"):
+def run(settings: str = "etc/settings.yml"):
     global_settings = get_settings(settings)
 
-    for source_name, source_settings in global_settings["sources"].items():
-        uri = create_uri(source_settings)
+    for oper_name, oper_settings in global_settings["operations"].items():
+        src_uri = create_uri(global_settings["connections"][oper_settings["origin"]])
+        dst_uri = create_uri(global_settings["connections"][oper_settings["destination"]])
 
-        for entity in source_settings["entities"]:
+        for entity in oper_settings["entities"]:
             if "schema" in entity:
                 full_name = f"[{entity['schema']}].[{entity['name']}]"
             else:
                 full_name = f"[{entity['name']}]"
 
-            partial_res = pl.read_database_uri(query=QUERY.substitute(entity_name=full_name), uri=uri, engine="adbc")
+            # downloads
+            partial_res = pl.read_database_uri(query=QUERY.substitute(entity_name=full_name), uri=src_uri, engine="adbc")
+            print(partial_res)
 
             # TODO: saves data
+
+
+if __name__ == "__main__":
+    run()
