@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.scripts]
-db-sampler = "database_sampler.sampler:app"
+db-sampler = "database_sampler.cli:app"
 
 [build-system]
 requires = ["hatchling"]

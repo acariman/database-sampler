@@ -9,12 +9,12 @@ from database_sampler.files import get_settings
 from database_sampler.conn import create_uri
 
 
+app = typer.Typer()
+
 QUERY_ALL = Template("SELECT * FROM $name")
 QUERY_FILTERED = Template(
     "SELECT * FROM $name WHERE $column BETWEEN '$start' AND '$end'"
 )
-
-app = typer.Typer()
 
 
 @app.command()
