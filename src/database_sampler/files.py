@@ -1,4 +1,3 @@
-
 import logging
 from pathlib import Path
 
@@ -12,8 +11,8 @@ def get_settings(path: str = "etc/settings.yml"):
         msg = f"Settings file does not exist: {path}"
         logging.error(msg)
         raise msg
-    
+
     with open(path) as f:
         settings = yaml.safe_load(f)
-    
+
     return settings

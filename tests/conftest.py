@@ -1,4 +1,3 @@
-
 import sqlite3
 from os import chdir, remove
 from pathlib import Path
@@ -12,7 +11,7 @@ DB_PATH = "files/database.sqlite"
 RES_PATH = "files/res.sqlite"
 
 
-# when running tests, moves to 
+# when running tests, moves to
 if Path("./tests/").exists():
     chdir("./tests/")
 
@@ -54,9 +53,9 @@ def setup_database():
 
     if not path.exists():
         download_database(DB_URL, DB_PATH)
-    
+
     clean()
-    
+
     # Checks file
     connection = sqlite3.connect(DB_PATH)
     yield connection
