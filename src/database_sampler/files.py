@@ -15,4 +15,6 @@ def get_settings(path: str = "etc/settings.yml"):
     with open(path) as f:
         settings = yaml.safe_load(f)
 
+    logging.info("Settings correctly loaded")
+
     return settings

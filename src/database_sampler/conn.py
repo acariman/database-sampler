@@ -1,4 +1,9 @@
+import logging
+
+
 def create_uri(settings):
+    logging.debug("Creating uri")
+
     if settings["driver"].strip().lower() == "sqlite":
         uri = f"sqlite://{settings['file']}"
     else:
