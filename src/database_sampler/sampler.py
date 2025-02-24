@@ -3,6 +3,7 @@ from string import Template
 from datetime import datetime
 
 import polars as pl
+import typer
 
 from database_sampler.files import get_settings
 from database_sampler.conn import create_uri
@@ -13,7 +14,10 @@ QUERY_FILTERED = Template(
     "SELECT * FROM $name WHERE $column BETWEEN '$start' AND '$end'"
 )
 
+app = typer.Typer()
 
+
+@app.command()
 def execute(
     settings: str = "etc/settings.yml", start: datetime = None, end: datetime = None
 ):
