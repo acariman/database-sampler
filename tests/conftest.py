@@ -51,6 +51,9 @@ def setup_database():
     """
     path = Path(DB_PATH)
 
+    if not path.parent.exists():
+        path.parent.mkdir()
+
     if not path.exists():
         download_database(DB_URL, DB_PATH)
 
