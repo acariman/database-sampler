@@ -33,8 +33,6 @@ uv sync
 - MySQL
 - SQL Server
 
-(More coming soon...)
-
 ## 🧪 Running Tests
 This repository includes pytest-based tests to ensure reliability:
 
@@ -46,10 +44,8 @@ pytest -v
 This project is licensed under the MIT License.
 
 ## 🚀 Future Improvements
-🔄 Support for additional database engines
-⏳ Asynchronous execution for faster data transfer
-🛠 CLI Interface for easier configuration
-📊 Logging & monitoring
+- 🔄 Support for additional database engines
+- ⏳ Asynchronous execution for faster data transfer
 
 ## 🤝 Contributing
 Contributions are welcome! Please submit a Pull Request or open an Issue if you find bugs or have feature suggestions.
