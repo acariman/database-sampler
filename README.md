@@ -6,11 +6,10 @@
 🚀 **DB sampler** is a Python-based utility that enables efficient **extraction, filtering, and migration** of sample data between different database engines. It allows users to selectively transfer tables and limit historical records based on a **start and end date**.
 
 ## 📌 Features
-- **Cross-Database Transfer**: Supports migrating data between different database engines.
-- **Table Filtering**: Specify which tables to transfer.
-- **Date Range Selection**: Extract only historical records within a user-defined start and end date.
-- **Optimized for Performance**: Uses efficient data streaming to handle large datasets.
-- **Automated Testing with Pytest**: Includes tests for database connectivity and data extraction.
+- **Cross-Database transfer**: Supports migrating data between different database engines.
+- **Table filtering**: Specify which tables to transfer.
+- **Date range selection**: Extract only historical records within a user-defined start and end date.
+- **Optimized for performance**: Uses efficient data streaming to handle large datasets.
 
 ## 🏗️ Installation
 Ensure you have **uv** installed, then:
@@ -53,3 +52,7 @@ Contributions are welcome! Please submit a Pull Request or open an Issue if you 
 
 ## 🔍 Need help?
 Open an issue in this repo or contact me ✌🏽.
+
+## 📜 Acknowledgements
+This project uses third-party dependencies that have their own open-source licenses.  
+See the full list of licenses in [acknowledgements](docs/acknowledgements.md) doc.
