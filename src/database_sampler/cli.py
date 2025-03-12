@@ -10,3 +10,7 @@ app.add_typer(sampler_app)
 @app.command()
 def version():
     print(__version__)
+
+
+if __name__ == "__main__":
+    app()
