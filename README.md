@@ -12,12 +12,16 @@
 - **Optimized for performance**: Uses efficient data streaming to handle large datasets.
 
 ## 🏗️ Installation
-Ensure you have **uv** installed, then:
+### Task
+This repo works with `Task`, which can be installed via different media, check the [official documentation](https://taskfile.dev/installation/). For example for windows you could run the following command.
+```powershell
+winget install Task.Task
+```
 
-```bash
-uv python install 3.11
-uv venv
-uv sync
+### Initialize environment
+Once installed, run the bootstrap task to initialize the development enviroment.
+```shell
+task bootstrap
 ```
 
 ## ⚙️ How to use it?

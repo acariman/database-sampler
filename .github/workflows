@@ -1,0 +1,28 @@
+name: Testing
+run-name: 🚀 Testing ${{ github.ref_name }}
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+      - name: Setup Task
+        uses: arduino/setup-task@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Initialize environment
+        run: task bootstrap
+
+      # tasks
+      - name: Run tests
+        run: task tests
