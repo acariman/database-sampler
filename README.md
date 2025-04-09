@@ -1,7 +1,8 @@
 # DB sampler
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+[![testing](https://github.com/acariman/database-sampler/actions/workflows/testing.yml/badge.svg)](https://github.com/acariman/database-sampler/actions/workflows/testing.yml)
 
 🚀 **DB sampler** is a Python-based utility that enables efficient **extraction, filtering, and migration** of sample data between different database engines. It allows users to selectively transfer tables and limit historical records based on a **start and end date**.
 
